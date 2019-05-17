@@ -1,0 +1,60 @@
+- name: Export ASM Policy
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars:
+   bigip_ip_addr: 10.10.14.94
+   vault_bigip_rest_user: admin
+   vault_bigip_rest_password: admin
+   waf_policy_name: Salary_API
+   policy_new_name: Salary_API
+   validate_certs: false
+
+
+  tasks:
+  - name: get ID
+    f5_asm_getPolicyID:
+      server: "{{ bigip_ip_addr }}"
+      user: "{{ vault_bigip_rest_user }}"
+      password: "{{ vault_bigip_rest_password }}"
+      policyName: "{{ waf_policy_name }}"
+      validate_certs: "{{ validate_certs }}"
+    register: policyId
+
+  - name: EXPORT POLICY
+    f5_asm_exportPolicy:
+      server: "{{ bigip_ip_addr }}"
+      serviceName: "{{ waf_policy_name }}"
+      policyId: "{{policyId.policyId}}"
+      user: "{{ vault_bigip_rest_user }}"
+      password: "{{ vault_bigip_rest_password }}"
+      validate_certs: "{{ validate_certs }}"
+    delegate_to: localhost
+    register: taskId
+
+  - name: GET STATUS OF THE EXPORT
+    f5_asm_getStatus:
+      server: "{{ bigip_ip_addr }}"
+      taskId: "{{taskId.exportTask}}"
+      taskType: "export-policy"
+      user: "{{ vault_bigip_rest_user }}"
+      password: "{{ vault_bigip_rest_password }}"
+      validate_certs: "{{ validate_certs }}"
+    delegate_to: localhost
+    register: myStatus
+    until: myStatus.taskStatus | default("COMPLETED")== "COMPLETED"
+    retries: 10
+    delay: 5
+
+  - name: GET EXPORTED POLICY
+    f5_asm_getExportedPolicy:
+      server: "{{ bigip_ip_addr }}"
+      serviceName: "{{ waf_policy_name }}"
+      user: "{{ vault_bigip_rest_user }}"
+      password: "{{ vault_bigip_rest_password }}"
+      validate_certs: "{{ validate_certs }}"
+    delegate_to: localhost
+    register: result
+
+  - name: Display result
+    debug: msg="{{ result }}"
