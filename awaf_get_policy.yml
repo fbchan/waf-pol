@@ -59,5 +59,8 @@
   - name: Display result
     debug: msg="{{ result }}"
 
-  - name: Sync with git repo
-    command: "git add -A && git commit -m \"Adding new files to repo\" && git push"
+  - name: commit changes to git
+    shell: |
+      git add -A && git commit -m "Adding new files to repo" && git push
+      # Needed as git commit will fail if there are no changed files
+      exit 0
