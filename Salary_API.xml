@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<policy integrity_check="e59396141f1f7e7c7dc375985a94d1e3" bigip_version="13.1.0" name="/Common/Salary_API.app/Salary_API">
+<policy integrity_check="412b74ac61df85728b7dc220d0990264" bigip_version="13.1.0" name="/Common/Salary_API.app/Salary_API">
   <type>Security</type>
   <policy_version>
-    <timestamp>2018-07-23T07:00:08Z</timestamp>
+    <timestamp>2019-05-18T02:40:07Z</timestamp>
     <device_name>apifw.foobz.com.au</device_name>
     <policy_name>/Common/Salary_API.app/Salary_API</policy_name>
-    <last_change>URL * [update]: Overridden Methods on URL were set to HEAD - Allow, GET - Allow, POST - Allow.
-HTML5 Cross-Origin Requests - Allowed Origins were set to an empty list.
-Check Methods Override on URL was set to true. { audit: policy = /Common/Salary_API.app/Salary_API, username = admin, client IP = /127.0.0.1:52064 }</last_change>
+    <last_change>HTTP Check Body in GET or HEAD requests [update]: Enable HTTP Check { audit: policy = /Common/Salary_API.app/Salary_API, username = admin, client IP = 10.10.14.3 }</last_change>
   </policy_version>
   <encoding>utf-8</encoding>
   <description>API Security Policy</description>
@@ -567,25 +565,25 @@ Check Methods Override on URL was set to true. { audit: policy = /Common/Salary_
     <evasion_setting policy_builder_tracking="enabled" name="Bare byte decoding">disabled</evasion_setting>
     <evasion_setting policy_builder_tracking="enabled" name="Apache whitespace">disabled</evasion_setting>
     <evasion_setting policy_builder_tracking="enabled" name="Bad unescape">disabled</evasion_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="POST request with Content-Length: 0">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Header name with no header value">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Several Content-Length headers">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Chunked request with Content-Length header">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Body in GET or HEAD requests">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Bad multipart/form-data request parsing">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Bad multipart parameters parsing">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="No Host header in HTTP/1.1 request">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="CRLF characters before request start">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Host header contains IP address">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Content length should be a positive number">disabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="POST request with Content-Length: 0">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Header name with no header value">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Several Content-Length headers">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Chunked request with Content-Length header">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Body in GET or HEAD requests">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Bad multipart/form-data request parsing">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Bad multipart parameters parsing">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="No Host header in HTTP/1.1 request">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="CRLF characters before request start">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Host header contains IP address">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Content length should be a positive number">enabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Bad HTTP version">enabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Null in request">enabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="High ASCII characters in headers">disabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="disabled" name="High ASCII characters in headers">enabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Unparsable request content">enabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Check maximum number of headers">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Bad host header value">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Check maximum number of parameters">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Multiple host headers">disabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Check maximum number of headers">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Bad host header value">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Check maximum number of parameters">enabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Multiple host headers">enabled</http_protocol_compliance_setting>
     <web_services_security_settings policy_builder_tracking="enabled" name="XML_WSS_INTERNAL_ERROR">enabled</web_services_security_settings>
     <web_services_security_settings policy_builder_tracking="enabled" name="XML_WSS_MALFORMED_ERROR">enabled</web_services_security_settings>
     <web_services_security_settings policy_builder_tracking="enabled" name="XML_WSS_CERTIFICATE_EXPIRED">enabled</web_services_security_settings>
