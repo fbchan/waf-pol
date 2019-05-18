@@ -7,7 +7,7 @@
    vault_bigip_rest_user: admin
    vault_bigip_rest_password: admin
    waf_policy_name: Salary_API
-   policy_new_name: Salary_API2
+   policy_new_name: Salary_API3
    validate_certs: false
 
 
