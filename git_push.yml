@@ -1,0 +1,11 @@
+
+- name: Test
+  hosts: localhost
+  connection: localhost
+
+  tasks:
+   - name: commit changes to git
+     shell: |
+      git add -A && git commit -m "Adding new files to repo" && git push
+      # Needed as git commit will fail if there are no changed files
+      exit 0

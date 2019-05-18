@@ -1,0 +1,4 @@
+---
+  - name: Sync with git repo
+    local_action: command 'git add -A && git commit -m "Adding new files to repo" && git push'
+    delegate_to: localhost
