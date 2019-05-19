@@ -61,9 +61,7 @@
 
   - name: commit changes to git
     shell: |
-      #git add -A && git commit -m "Adding new files to repo" && git push
       git remote add Salary_API.xml https://gitlab.foobz.com.au/fbchan/awaf-policies.git && git commit -m "Adding new files to repo" && git push
-      # Needed as git commit will fail if there are no changed files
       exit 0
 
 
